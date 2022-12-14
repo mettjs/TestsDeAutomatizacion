@@ -33,14 +33,13 @@ def test_LogInFallido():
         .send_keys('m2692004+')
 
     time.sleep(2)
+    driver.save_screenshot("resultados/login_success.png")
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "ingresar"))) \
         .click()
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "index"))) \
         .click()
-
-    driver.save_screenshot("resultados/login_fallido.png")
 
 
 def test_paginacion():
@@ -56,7 +55,8 @@ def test_paginacion():
     wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
                                            "i.fas.fa-angle-right"))) \
         .click()
-
+    time.sleep(1)
+    driver.save_screenshot("resultados/navegacion.png")
     time.sleep(2)
     wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
                                            "i.fas.fa-angle-left"))) \
@@ -70,9 +70,6 @@ def test_paginacion():
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "index"))) \
         .click()
-
-    time.sleep(3)
-    driver.save_screenshot("resultados/navegacion.png")
 
 
 def test_peliculas():
@@ -92,12 +89,11 @@ def test_peliculas():
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "5"))) \
         .click()
+    driver.save_screenshot("resultados/peliculas.png")
     time.sleep(3)
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "index"))) \
         .click()
-
-    driver.save_screenshot("resultados/peliculas.png")
 
 
 def test_trailerRep():
@@ -114,6 +110,8 @@ def test_trailerRep():
                                            "div.peliculaa"))) \
         .click()
     time.sleep(3)
+    driver.save_screenshot("resultados/peliculas.png")
+    time.sleep(5)
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "index"))) \
         .click()
@@ -166,8 +164,8 @@ def test_agregar():
                                            "YT"))) \
         .send_keys('texto de prueba')
 
-    time.sleep(2)
     driver.save_screenshot("resultados/agregado_pelicula.png")
+    time.sleep(2)
     wait.until(EC.element_to_be_clickable((By.ID,
                                            "Agregar"))) \
         .click()
